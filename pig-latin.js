@@ -1,36 +1,32 @@
-var pigLatin = process.argv.slice(2);
+var originalText = process.argv.slice(2);
 var breakDown;
-var gibberish;
-var sentence = '';
+var pigLatin;
+var pigSentence = '';
 
-for(var i = 0;i < pigLatin.length; i++){
+for(var i = 0;i < originalText.length; i++){
 
-  breakDown = pigLatin[i].split('');
-  gibberish = '';
+  breakDown = originalText[i].split('');
+  pigLatin = '';
 
   for(var n = 1; n < breakDown.length; n++){
 
-    gibberish = gibberish + breakDown[n];
-
-
-    if(n === breakDown.length - 1){
-
-      gibberish = gibberish + breakDown[0] + 'ay';
-
-    }
+    pigLatin = pigLatin + breakDown[n];
 
   }
 
-  if(i < pigLatin.length - 1){
+  pigLatin = pigLatin + breakDown[0] + 'ay';
 
-    sentence = sentence + gibberish + ' ';
+  if(i < originalText.length - 1){
+
+    pigSentence = pigSentence + pigLatin + ' ';
+    console.log(pigSentence);
 
   }
   else{
 
-    sentence = sentence + gibberish;
+    pigSentence = pigSentence + pigLatin;
 
   }
 }
 
-console.log(sentence);
+console.log(pigSentence);
